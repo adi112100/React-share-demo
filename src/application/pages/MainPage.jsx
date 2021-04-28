@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Card from '../Components/Card';
 import axios from 'axios';
 
-import { BrowserRouter as Router, Switch, Route, useParams } from 'react-router-dom';
-import { ProfessorDetailPage } from './ProfessorDetailPage';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import  ProfessorDetailPage from './ProfessorDetailPage';
+
+
+
 
 const MainPage = () => {
 	const [professorData, setprofessorData] = useState([]);
@@ -21,9 +24,9 @@ const MainPage = () => {
 
 	return (
 		<div>
-			<nav class='navbar navbar-dark bg-dark'>
-				<div class='container-fluid'>
-					<span class='navbar-brand mb-0 h1'>Professor.edu</span>
+			<nav className='navbar navbar-dark bg-dark'>
+				<div className='container-fluid'>
+					<span className='navbar-brand mb-0 h1'>Professor.edu</span>
 				</div>
 			</nav>
 
@@ -43,8 +46,8 @@ const MainPage = () => {
 							</div>
 						</div>
 					</Route>
-					<Route path='/blog/:slug'>
-						<ProfessorDetailPage />
+					<Route path='/professor/:slug'>
+						<ProfessorDetailPage  Data={professorData}/>
 					</Route>
 				</Switch>
 			</Router>

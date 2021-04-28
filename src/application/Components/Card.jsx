@@ -1,23 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Card = (props) => {
 	const { Data } = props;
-	console.log(Data);
 	return (
 		<Flex>
 			{Data.map((data) => {
 				return (
 					<Cards className='card shadow' key={data.id}>
-						<img src='https://source.unsplash.com/1600x900/?professor' className='card-img-top' alt='...' />
+						<img src={`https://dev.perfectprof.com/storage/app/${data.profile_pic}`} className='card-img-top' alt='professor-pic'   />
 						<div className='card-body'>
 							<h5 className='card-title'>
 								{' '}
 								<strong style={{ color: 'orange' }}>Professor Name:</strong> {data.professional.first_name} {data.professional.last_name}
 							</h5>
-							<a href='/' className='btn btn-primary'>
+							<Link to={`/professor/${data.id}`} className='btn btn-warning mt-4'>
 								Explore
-							</a>
+							</Link>
 						</div>
 					</Cards>
 				);
@@ -37,16 +37,18 @@ const Flex = styled.div`
 
 const Cards = styled.div`
 	width: 25rem;
+	height: 450px;
 	border-radius: 20px;
 	margin-bottom: 20px;
 	div {
-
 		display: flex;
-        flex-direction: column;
+		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 	}
 	img {
 		border-radius: 20px;
+		max-height: 300px;
+		object-fit: cover;
 	}
 `;
